@@ -120,17 +120,17 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Should I Seed My Grass?</h1>
-          <p className="text-lg text-gray-600">Get personalized advice based on your location&apos;s weather forecast</p>
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Should I Seed My Grass?</h1>
+          <p className="text-base text-gray-600">Get personalized advice based on your location&apos;s weather forecast</p>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 mb-8">
-          <div className="space-y-4">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 mb-6">
+          <div className="space-y-3">
             <div>
-              <label htmlFor="postcode-input" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="postcode-input" className="block text-sm font-medium text-gray-700 mb-1">
                 Enter a UK Postcode
               </label>
               <input
@@ -138,7 +138,7 @@ export default function Home() {
                 id="postcode-input"
                 value={postcode}
                 onChange={handlePostcodeChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="e.g., HP18 9HE"
               />
             </div>
@@ -153,23 +153,23 @@ export default function Home() {
         </div>
 
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-8">
+          <div className="bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-md mb-6">
             {error}
           </div>
         )}
 
         {results && (
-          <div className="space-y-4">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-              <h2 className="text-xl font-semibold mb-4">14-Day Weather</h2>
+          <div className="space-y-3">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+              <h2 className="text-lg font-semibold mb-2">14-Day Weather</h2>
               <p><strong>Days with Avg &ge; {TEMP_AVG_THRESHOLD}°C:</strong> {results.daysAbove8}<br/>
                  <strong>Days with Min &lt; {FROST_THRESHOLD}°C:</strong> {results.frostDays}</p>
             </div>
             
-            <div className={`p-6 rounded-lg shadow-sm border ${getRecommendationColor(results.recommendation)}`}>
-              <h2 className="text-xl font-semibold mb-4">Recommendation</h2>
-              <p className="text-lg"><strong>{results.recommendation}</strong></p>
-              <p className="mt-2"><strong>Overall Rating:</strong> {results.rating}</p>
+            <div className={`p-4 rounded-lg shadow-sm border ${getRecommendationColor(results.recommendation)}`}>
+              <h2 className="text-lg font-semibold mb-2">Recommendation</h2>
+              <p className="text-base"><strong>{results.recommendation}</strong></p>
+              <p className="mt-1"><strong>Overall Rating:</strong> {results.rating}</p>
             </div>
           </div>
         )}
